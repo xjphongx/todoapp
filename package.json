@@ -4,11 +4,14 @@
   "description": "",
   "scripts": {
     "build": "if-env TYPE=server && (cd server && npm install) || (cd client && npm install)",
-    "server":"node ./server/server.mjs",
-    "client": "cd client && npm start"
+    "server": "cd server && npm start",
+    "client": "cd client && npm start",
+    "extra": "nodemon ./server/server.mjs"
+
   },
   "author": "",
   "dependencies": {
-    "if-env": "^1.0.4"
+    "if-env": "^1.0.4",
+    "nodemon": "^3.0.1"
   }
 }

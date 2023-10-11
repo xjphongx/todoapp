@@ -1,9 +1,24 @@
+import React from 'react'
+
+
 export default function Modal(){
+  const mode = 'create'
+   const editMode = mode=== 'edit' ? true: false
+   const [data, setData] = React.useState({
+    user_email:"",
+    title:"",
+    progress:"",
+    date: editMode ? "" : new Date()
+  })
+ 
 
-  const mode = 'edit'
-
-  const handleChange = () =>{
-
+  const handleChange = (e) =>{
+    const {name, value} = e.target
+    setData(data=>({
+      ...data,
+      [name]: value
+    }))
+    console.log(data)
   }
 
 
@@ -21,18 +36,19 @@ export default function Modal(){
             maxLength={30}
             placeholder="Your task goes here"
             name="title"
-            value={""}
+            value={data.title}
             onChange={handleChange} 
           />
-
           <br/>
+          <label htmlFor="range">Drag to select your current progress</label>
           <input 
             required
+            id="range"
             type="range"
             min="0"
             max="100"
             name="progress"
-            value={""}
+            value={data.progress}
             onChange={handleChange}
           />
           
