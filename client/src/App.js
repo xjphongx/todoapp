@@ -28,10 +28,10 @@ function App() {
 
   return (
     <div className="app">
-      <ListHeader listName={"Todo List"} />
+      <ListHeader listName={"Todo List"} getData={getData}  />
       {sortedTasks?.map((task)=>{
         return(
-          <ListItem key={task.id} task={task}/>
+          <ListItem key={task.id} task={task} getData={getData}/>
         ) 
       })}
 

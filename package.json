@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "build": "if-env TYPE=server && (cd server && npm install) || (cd client && npm install)",
-    "server": "cd server && npm start",
+    "server": "cd server && npm run start",
     "client": "cd client && npm start",
     "extra": "nodemon ./server/server.mjs"
 
