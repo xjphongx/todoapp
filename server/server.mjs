@@ -31,19 +31,29 @@ app.get('/todos/:userEmail', async (req,res)=>{
 
 //create a new todo
 app.post('/todos', async (req,res)=>{
-  
   const {user_email, title, progress, date} = req.body
-  console.log(user_email, title, progress, date)
   const id = uuid.v4()
   try{
     const newTodo = await pool.query('INSERT INTO todos(id, user_email, title, progress, date) VALUES($1,$2,$3,$4,$5)',[id, user_email, title, progress, date])
     return res.status(200).json(newTodo)
   }catch(err){
     console.log("error")
-    console.error(err)
+    console.log(err)
   }
 })
 
+//edit a todo given an id
+app.put('/todos/:id', async(req,res)=>{
+  const {id} = req.params
+  const {user_email, title, progress, date} = req.body
+  try{
+    //update the todos tables and set these table values to variable 1... variable 5, where the id matches the given task id [1, 2, 3, 4, 5]
+    const editTodo = await pool.query('UPDATE todos SET user_email=$1, title=$2, progress=$3, date=$4 WHERE id=$5;',[user_email, title, progress, date,id])
+    res.status(200).json(editTodo)
+  }catch(err){
+    console.log(err)
+  }
+})
 
 app.listen(PORT, ()=>{
   console.log(`Server running on PORT ${PORT}`)

@@ -13,6 +13,7 @@ export default function Modal({mode,setShowModal, getData,task}){
   //post data
   const postData = async (e) =>{
     e.preventDefault()
+    console.log(data)
     console.log(JSON.stringify(data))
     try{
       const response = await fetch('http://localhost:8000/todos',{
@@ -30,13 +31,32 @@ export default function Modal({mode,setShowModal, getData,task}){
     }
   }
 
+  //edit data 
+  const editData = async(e) =>{
+    e.preventDefault()
+    try{
+      const response = await fetch(`http://localhost:8000/todos/${task.id}`,{
+        method: "PUT",
+        headers: {'Content-Type': 'application/json'},
+        body:JSON.stringify(data)
+      })
+      //close modal and get the data again to show todos
+      if(response.status === 200){
+        setShowModal(false)
+        getData()
+      }
+    }catch(err){
+      console.log(err)
+    }
+    
+  }
+
   const handleChange = (e) =>{
     const {name, value} = e.target
     setData(data=>({
       ...data,
       [name]: value
     }))
-    console.log(data)
   }
 
 
@@ -70,7 +90,7 @@ export default function Modal({mode,setShowModal, getData,task}){
             onChange={handleChange}
           />
           
-          <input className={mode} type="submit" onClick={editMode? '': postData}/>
+          <input className={mode} type="submit" onClick={editMode? editData: postData}/>
         </form>
 
       </div>
