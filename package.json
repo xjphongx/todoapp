@@ -7,10 +7,10 @@
     "server": "cd server && npm run start",
     "client": "cd client && npm start",
     "extra": "nodemon ./server/server.mjs"
-
   },
   "author": "",
   "dependencies": {
+    "dotenv": "^16.3.1",
     "if-env": "^1.0.4",
     "nodemon": "^3.0.1"
   }
