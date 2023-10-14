@@ -3,9 +3,9 @@
 //const Pool = require('pg').Pool
 import pg from "pg"
 import dotenv from "dotenv";
-
-const {Pool} = pg
 dotenv.config();
+const {Pool} = pg
+
 
 
 const pool = new Pool({
@@ -15,7 +15,6 @@ const pool = new Pool({
   port:process.env.DBPORT,
   database: 'todoapp'
 })
-
 
 
 export default pool

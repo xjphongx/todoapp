@@ -6,7 +6,6 @@ import React from "react"
 function App() {
   const userEmail = 'jimmy@test.com'
   const [tasks, setTasks] = React.useState(null)
-
   //get the data from Postgres
   const getData = async () =>{
     try{

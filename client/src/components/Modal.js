@@ -16,7 +16,7 @@ export default function Modal({mode,setShowModal, getData,task}){
     console.log(data)
     console.log(JSON.stringify(data))
     try{
-      const response = await fetch('http://localhost:8000/todos',{
+      const response = await fetch(`http://localhost:8000/todos`,{
         method:"POST",
         headers:{'Content-Type': 'application/json'},
         body: JSON.stringify(data)
@@ -48,7 +48,6 @@ export default function Modal({mode,setShowModal, getData,task}){
     }catch(err){
       console.log(err)
     }
-    
   }
 
   const handleChange = (e) =>{

@@ -19,6 +19,7 @@ app.get('/todos', async (req,res)=>{
   }
 })
 
+//get todos with a specific email
 app.get('/todos/:userEmail', async (req,res)=>{
   const {userEmail}=req.params
   try{
@@ -53,6 +54,18 @@ app.put('/todos/:id', async(req,res)=>{
   }catch(err){
     console.log(err)
   }
+})
+
+//delete a todo
+app.delete('/todos/:id', async(req,res)=>{
+  const {id} = req.params
+  try{
+    const deleteTodo = await pool.query('DELETE FROM todos WHERE id = $1;',[id])
+    res.status(200).json(deleteTodo)
+  }catch(err){
+    console.log(err)
+  }
+
 })
 
 app.listen(PORT, ()=>{
