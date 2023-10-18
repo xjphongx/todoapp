@@ -2,17 +2,20 @@ import ListHeader from './components/ListHeader'
 import ListItem from './components/ListItem'
 import Auth from './components/Auth'
 import React from "react"
+import { useCookies } from 'react-cookie'
 
 
 function App() {
-  const userEmail = 'jimmy@test.com'
+  const [cookies, setCookie, removeCookie] = useCookies(null)
+  const userEmail = cookies.Email
+  const authToken = cookies.AuthToken
   const [tasks, setTasks] = React.useState(null)
 
-  const authToken = false
 
   //get the data from Postgres
   const getData = async () =>{
     try{
+      console.log(userEmail)
       const response = await fetch(`http://localhost:8000/todos/${userEmail}`)
       const data = await response.json()
       setTasks(data)
@@ -20,6 +23,8 @@ function App() {
       console.log(err)
     }
   }
+
+  console.log(tasks)
 
   React.useEffect(()=>{
     if(authToken){
