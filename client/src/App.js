@@ -41,13 +41,15 @@ function App() {
       {!authToken&& <Auth/>}
       {authToken && <>
         <ListHeader listName={"Todo List"} getData={getData}  />
+        <p className='user-email'>Welcome Back {userEmail}</p>
         {sortedTasks?.map((task)=>{
           return(
             <ListItem key={task.id} task={task} getData={getData}/>
           ) 
         })}
 
-      </>}
+      </>
+      }
       
           
     </div>

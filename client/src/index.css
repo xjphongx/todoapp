@@ -17,6 +17,7 @@ body {
 .button-container{
   display:flex;
   align-items: center;
+
 }
 .button-container button {
   margin: 0 5px;
@@ -34,6 +35,7 @@ body {
   width: 100%;
   justify-content: space-between;
   border-bottom: rgba(0,0,0, 0.05) 1px solid;
+  
 }
 
 .list-item {
@@ -43,9 +45,11 @@ body {
   box-shadow: rgba(0,0,0, 0.08) 0 0 0 1px;
   display: flex;
   justify-content: space-between;
+  
 }
 .info-container{
- display:flex;
+ margin-left: 10px;
+  display:flex;
  align-items: center;
  gap:10px;
  
@@ -194,4 +198,24 @@ input {
 
 }
 
+.user-email{
+  float:right;
+  font-size: 13px;
+  margin:10px;
+  color:rgb(114,114,144);
+}
 
+.outer-bar{
+  width:200px;
+  height: 14px;
+  background-color: rgb(216,216,216);
+  border-radius: 7px;
+  overflow:hidden;
+}
+.inner-bar{
+  height: 14px;
+
+}
+.task-title{
+  width: 300px;
+}
