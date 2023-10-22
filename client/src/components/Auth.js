@@ -1,6 +1,10 @@
 import { useState } from "react"
 import {useCookies} from 'react-cookie'
 
+const API_URL = 
+  process.env.NODE_ENV === "production"
+    ? "https://deployed-to-do-app-5083e8cc079c.herokuapp.com/"
+    : process.env.REACT_APP_SERVERURL
 
 export default function Auth(){
   const [cookies, setCookie, removeCookie] = useCookies(null)
@@ -24,7 +28,7 @@ export default function Auth(){
       setError("Make sure passwords match!")
       return
     }
-    const response = await fetch(`${process.env.REACT_APP_SERVERURL}/${endpoint}`,{
+    const response = await fetch(`${API_URL}/${endpoint}`,{
       method:"POST",
       headers:{'Content-Type' : 'application/json'},
       body: JSON.stringify({email,password})

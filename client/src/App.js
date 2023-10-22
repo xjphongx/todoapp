@@ -4,7 +4,10 @@ import Auth from './components/Auth'
 import React from "react"
 import { useCookies } from 'react-cookie'
 
-
+const API_URL = 
+  process.env.NODE_ENV === "production"
+    ? "https://deployed-to-do-app-5083e8cc079c.herokuapp.com/"
+    : process.env.REACT_APP_SERVERURL
 
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies(null)
@@ -16,7 +19,7 @@ function App() {
   //get the data from Postgres
   const getData = async () =>{
     try{
-      const response = await fetch(`${process.env.REACT_APP_SERVERURL}/todos/${userEmail}`)
+      const response = await fetch(`${API_URL}/todos/${userEmail}`)
       const data = await response.json()
       setTasks(data)
     }catch(err){
