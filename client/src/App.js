@@ -5,6 +5,7 @@ import React from "react"
 import { useCookies } from 'react-cookie'
 
 
+
 function App() {
   const [cookies, setCookie, removeCookie] = useCookies(null)
   const userEmail = cookies.Email
@@ -15,16 +16,13 @@ function App() {
   //get the data from Postgres
   const getData = async () =>{
     try{
-      console.log(userEmail)
-      const response = await fetch(`http://localhost:8000/todos/${userEmail}`)
+      const response = await fetch(`${process.env.REACT_APP_SERVERURL}/todos/${userEmail}`)
       const data = await response.json()
       setTasks(data)
     }catch(err){
       console.log(err)
     }
   }
-
-  console.log(tasks)
 
   React.useEffect(()=>{
     if(authToken){

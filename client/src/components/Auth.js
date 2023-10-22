@@ -10,9 +10,9 @@ export default function Auth(){
   const [confirmPassword, setConfirmPassword] = useState(null)
   const [error, setError] = useState(null)
 
-  console.log(cookies)
+ /*  console.log(cookies)
   console.log(email,password,confirmPassword)
- 
+  */
   const viewLogin = (status) =>{
     setError(null)
     setIsLogin(status)
@@ -24,8 +24,7 @@ export default function Auth(){
       setError("Make sure passwords match!")
       return
     }
-
-    const response = await fetch(`http://localhost:8000/${endpoint}`,{
+    const response = await fetch(`${process.env.REACT_APP_SERVERURL}/${endpoint}`,{
       method:"POST",
       headers:{'Content-Type' : 'application/json'},
       body: JSON.stringify({email,password})

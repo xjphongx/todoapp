@@ -6,7 +6,8 @@
     "build": "if-env TYPE=server && (cd server && npm install) || (cd client && npm install)",
     "server": "cd server && npm run start",
     "client": "cd client && npm start",
-    "extra": "nodemon ./server/server.mjs"
+    "start": "cd server && npm install && node index.js",
+    "heroku-postbuild":"cd client && npm install && npm run build"
   },
   "author": "",
   "dependencies": {
