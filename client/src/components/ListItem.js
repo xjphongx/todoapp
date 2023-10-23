@@ -14,7 +14,7 @@ export default function ListItem({task, getData}){
 
   const deleteItem = async() =>{
     try{
-      const response = await fetch(`/todos/${task.id}`,{
+      const response = await fetch(`${API_URL }/todos/${task.id}`,{
         method:'DELETE'
       })
       if(response.status === 200){

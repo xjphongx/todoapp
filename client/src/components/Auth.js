@@ -30,7 +30,7 @@ export default function Auth(){
       return
     }
     
-    const response = await fetch(`/${endpoint}`,{ //
+    const response = await fetch(`${API_URL }/${endpoint}`,{ //
       method:"POST",
       headers:{'Content-Type' : 'application/json'},
       body: JSON.stringify({email,password})
@@ -43,7 +43,7 @@ export default function Auth(){
     } else {
       setCookie('Email', data.email)
       setCookie('AuthToken', data.token) //get email and token from server
-      //window.location.reload()
+      window.location.reload()
     }
 
   }
