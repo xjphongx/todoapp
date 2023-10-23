@@ -16,7 +16,7 @@ const devConfig = {
 
 
 const proConfig = {
-  connectionString: process.env.DATABASE_URL //heroku addons needed, heroku will provide us this
+  connectionString: process.env.DATABASE_URL 
 }
 
 //heroku provides a node_env to check if its in production or not
