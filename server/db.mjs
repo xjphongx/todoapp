@@ -20,9 +20,9 @@ const proConfig = {
 }
 
 //heroku provides a node_env to check if its in production or not
-const pool = new Pool({
-  connectionString: process.env.NODE_ENV === "production" ? proConfig : devConfig
-})
+const pool = new Pool(
+  process.env.NODE_ENV === "production" ? proConfig : devConfig
+)
 
 
 

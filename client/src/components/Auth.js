@@ -14,9 +14,10 @@ export default function Auth(){
   const [confirmPassword, setConfirmPassword] = useState(null)
   const [error, setError] = useState(null)
 
- /*  console.log(cookies)
-  console.log(email,password,confirmPassword)
-  */
+
+
+
+
   const viewLogin = (status) =>{
     setError(null)
     setIsLogin(status)
@@ -28,11 +29,13 @@ export default function Auth(){
       setError("Make sure passwords match!")
       return
     }
-    const response = await fetch(`${API_URL}/${endpoint}`,{
+    
+    const response = await fetch(`/${endpoint}`,{ //
       method:"POST",
       headers:{'Content-Type' : 'application/json'},
       body: JSON.stringify({email,password})
     })
+
     const data = await response.json()
     
     if(data.detail){
@@ -40,7 +43,7 @@ export default function Auth(){
     } else {
       setCookie('Email', data.email)
       setCookie('AuthToken', data.token) //get email and token from server
-      window.location.reload()
+      //window.location.reload()
     }
 
   }
