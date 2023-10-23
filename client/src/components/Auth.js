@@ -3,7 +3,7 @@ import {useCookies} from 'react-cookie'
 
 const API_URL = 
   process.env.NODE_ENV === "production"
-    ? "https://deployed-to-do-app-5083e8cc079c.herokuapp.com/"
+    ? "https://todoapp-production-85c5.up.railway.app/"
     : process.env.REACT_APP_SERVERURL
 
 export default function Auth(){
