@@ -1,4 +1,3 @@
-const PORT = process.env.PORT || 8000
 
 import express from "express";
 import cors from "cors";
@@ -6,10 +5,27 @@ import pool from "./db.mjs"
 import * as uuid from  "uuid"
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
+import exp from "constants";
+import path from 'path';
+import { fileURLToPath } from 'url';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+console.log(__dirname)
+
+const PORT = process.env.PORT || 8000
 const app = express();
 app.use(cors())
 app.use(express.json())
+
+/* app.use(express.static(path.join(__dirname, "../client/build"))) */
+//getting ready for production, production will point to this director for the static site
+if(process.env.NODE_ENV === "production"){
+  //server static content
+  //npm run build
+  app.use(express.static(path.join(__dirname, "client/build")))
+}
+
 
 // get specific todo
 app.get('/todos', async (req,res)=>{
@@ -92,7 +108,7 @@ app.post('/signup', async (req,res)=>{
 //login
 app.post('/login', async (req,res)=>{
   const {email,password} = req.body
-  console.log(email,password)
+
   //hash the password
   try{
     const users = await pool.query('SELECT * FROM users WHERE email = $1',[email])
