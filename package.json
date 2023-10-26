@@ -6,7 +6,7 @@
     "server": "cd server && npm run start",
     "client": "cd client && npm run start",
     "start": "cd server && npm install && node server.mjs",
-    "build":"cd client && npm install && npm run build"
+    "testbuild":"cd client && npm install && npm run build"
   },
   "author": "",
   "dependencies": {
