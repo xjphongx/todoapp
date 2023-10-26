@@ -6,7 +6,7 @@
     "server": "cd server && npm run start",
     "client": "cd client && npm run start",
     "start": "cd server && npm install && node server.mjs",
-    "build":"if-env TYPE=server && (cd server && install) || (cd client && npm install)"
+    "build":"if-env TYPE=server && (cd server && npm install) || (cd client && npm install)"
   },
   "author": "",
   "dependencies": {
