@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "server": "cd server && npm run start",
+    "server": "cd server && npm run deploy",
     "client": "cd client && npm run start",
     "start": "cd server && npm install && node server.mjs",
     "build":"if-env TYPE=server && (cd server && npm install) || (cd client && npm install)"
