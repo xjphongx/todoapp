@@ -16,7 +16,7 @@ const devConfig = {
 
 
 const proConfig = {
-  connectionString: process.env.DATABASE_URL 
+  connectionString: process.env.DATABASE_URL
 }
 /* process.env.NODE_ENV === "production" ? proConfig : devConfig */
 
