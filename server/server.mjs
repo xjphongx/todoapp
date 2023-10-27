@@ -20,11 +20,15 @@ app.use(express.json())
 
 /* app.use(express.static(path.join(__dirname, "../client/build"))) */
 //getting ready for production, production will point to this director for the static site
-if(process.env.NODE_ENV === "production"){
+/* if(process.env.NODE_ENV === "production"){
   //server static content
   //npm run build
   app.use(express.static(path.join(__dirname, "../client/build")))
-}
+} */
+
+app.get('', (req,res)=>{
+  res.json("hello world")
+})
 
 
 // get specific todo
