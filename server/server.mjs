@@ -11,7 +11,7 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-console.log(__dirname)
+
 
 const PORT = process.env.NODE_ENV === "production" ? process.env.DBPORT : 8000
 const app = express();
