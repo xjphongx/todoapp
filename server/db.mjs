@@ -21,7 +21,7 @@ const proConfig = {
 /* process.env.NODE_ENV === "production" ? proConfig : devConfig */
 
 const pool = new Pool(
-  devConfig
+  process.env.NODE_ENV === "production" ? proConfig : devConfig
 )
 
 
