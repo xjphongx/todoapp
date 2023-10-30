@@ -13,13 +13,15 @@ const devConfig = {
     database: process.env.DATABASE
 };
 
-const proConfig = {
+
+
+/* const proConfig = {
   connectionString: process.env.DATABASE_URL,
 }
 /* process.env.NODE_ENV === "production" ? proConfig : devConfig */
-
+ 
 const pool = new Pool(
-  process.env.NODE_ENV === "production" ? proConfig : devConfig
+  devConfig
 )
 
 
