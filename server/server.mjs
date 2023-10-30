@@ -38,6 +38,7 @@ app.get('/todos', async (req,res)=>{
     res.json(todos.rows)
   }catch(err){
     console.error(err)
+    res.json(err)
   }
 })
 
@@ -49,6 +50,7 @@ app.get('/todos/:userEmail', async (req,res)=>{
     res.json(todos.rows)
   }catch(err){
     console.error(err)
+    res.json(err)
   }
 })
 
@@ -60,8 +62,8 @@ app.post('/todos', async (req,res)=>{
     const newTodo = await pool.query('INSERT INTO todos(id, user_email, title, progress, date) VALUES($1,$2,$3,$4,$5)',[id, user_email, title, progress, date])
     return res.status(200).json(newTodo)
   }catch(err){
-    console.log("error")
     console.log(err)
+    res.json(err)
   }
 })
 
@@ -75,6 +77,7 @@ app.put('/todos/:id', async(req,res)=>{
     res.status(200).json(editTodo)
   }catch(err){
     console.log(err)
+    res.json(err)
   }
 })
 
@@ -86,6 +89,7 @@ app.delete('/todos/:id', async(req,res)=>{
     res.status(200).json(deleteTodo)
   }catch(err){
     console.log(err)
+    res.json(err)
   }
 })
 
