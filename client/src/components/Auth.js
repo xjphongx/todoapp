@@ -29,7 +29,7 @@ export default function Auth(){
       setError("Make sure passwords match!")
       return
     }
-    
+    console.log(endpoint)
     const response = await fetch(`${API_URL }/${endpoint}`,{ //
       method:"POST",
       headers:{'Content-Type' : 'application/json'},
