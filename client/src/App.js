@@ -6,7 +6,7 @@ import { useCookies } from 'react-cookie'
 
 const API_URL = 
   process.env.NODE_ENV === "production"
-    ? "https://deployed-to-do-app-5083e8cc079c.herokuapp.com/"
+    ? process.env.RAILWAY_APP_SERVERURL
     : process.env.REACT_APP_SERVERURL
 
 function App() {
