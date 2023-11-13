@@ -1,6 +1,8 @@
 import { useState } from "react"
 import {useCookies} from 'react-cookie'
 
+console.log(process.env.NODE_ENV)
+
 const API_URL = 
   process.env.NODE_ENV === "production"
     ? process.env.RAILWAY_APP_SERVERURL
