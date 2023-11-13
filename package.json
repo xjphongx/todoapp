@@ -5,8 +5,8 @@
   "scripts": {
     "server": "cd server && npm run deploy",
     "client": "cd client && npm run start",
-    "start-client-production":"NODE_ENV=production && cd client && npm run start",
-    "start-server-production": "NODE_ENV=production && cd server && npm install && node server.mjs",
+    "start-client-production":"NODE_ENV=production cd client && npm run start",
+    "start-server-production": "NODE_ENV=production cd server && npm install && node server.mjs",
 
     "build":"if-env TYPE=server && (cd server && npm install) || (cd client && npm install)",
     "build-server": "cd server && npm install",
