@@ -4,7 +4,7 @@ import {useCookies} from 'react-cookie'
 console.log(process.env.NODE_ENV)
 
 const API_URL = 
-  process.env.NODE_ENV === "production"
+  process.env.NODE_ENV === "development" //issue here
     ? process.env.RAILWAY_APP_SERVERURL
     : process.env.REACT_APP_SERVERURL
 
